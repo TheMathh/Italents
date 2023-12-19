@@ -10,7 +10,7 @@ programa {
 
     // Valor do produto
 
-    escreva("Digite o valor do produto por favor: ")
+    escreva("Digite o valor do produto: ")
     leia(produto)
 
     // Desconto (10% do produto)
@@ -23,6 +23,6 @@ programa {
 
     // Resultado
 
-    escreva("O valor final do produto com o desconto é de: ", final)
+    escreva("O valor do produto com o desconto é de: ", final)
   }
 }
