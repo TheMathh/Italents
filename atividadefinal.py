@@ -1,32 +1,32 @@
 import random
 
-def jogardado():
+def jogar_dado():
     return random.randint(1, 6)
 
-def criarjogador(nome):
+def criar_jogador(nome):
     return {"nome": nome, "resultados": [], "vitorias": 0}
 
 def main():
-    numrodadas = int(input("Quantas rodadas você deseja jogar? "))
-    numjogadores = int(input("Quantos jogadores vão participar do jogo? "))
+    num_rodadas = int(input("Quantas rodadas você deseja jogar? "))
+    num_jogadores = int(input("Quantos jogadores vão participar do jogo? "))
 
     jogadores = []
     
-    for i in range(numjogadores):
-        nome = input(f"Nome do jogador {i + 1}: ")
-        jogadores.append(criarjogador(nome))
+    for i in range(num_jogadores):
+        nome = input(f"Digite o nome do jogador {i + 1}: ")
+        jogadores.append(criar_jogador(nome))
 
-    for rodada in range(numrodadas):
+    for rodada in range(num_rodadas):
         print(f"\nRodada {rodada + 1}:")
 
-        resultadosrodada = [jogardado() for _ in range(numjogadores)]
-        maxresultado = max(resultadosrodada)
+        resultados_rodada = [jogar_dado() for _ in range(num_jogadores)]
+        max_resultado = max(resultados_rodada)
 
         for i, jogador in enumerate(jogadores):
-            jogador["resultados"].append(resultadosrodada[i])
-            print(f"{jogador['nome']} tirou {resultadosrodada[i]}")
+            jogador["resultados"].append(resultados_rodada[i])
+            print(f"{jogador['nome']} tirou {resultados_rodada[i]}")
 
-            if resultadosrodada[i] == maxresultado:
+            if resultados_rodada[i] == max_resultado:
                 jogador["vitorias"] += 1
 
     print("\nResultados finais:\n")
@@ -37,9 +37,9 @@ def main():
 
     empate = len(jogadores) > 1 and jogadores[0]['vitorias'] == jogadores[1]['vitorias']
     if empate:
-        print("\nTeve um empate.")
+        print("\nHouve um empate.")
     else:
-        print(f"\nO campeão é {jogadores[0]['nome']}!")
+        print(f"\nO grande campeão é {jogadores[0]['nome']}!")
 
 if __name__ == "__main__":
     main()
